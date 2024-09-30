@@ -17,13 +17,7 @@ class ListaTransferenciasState extends State<ListaTransferencia> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Transferências",
-          style: TextStyle(color: Colors.white),
-        ),
-        backgroundColor: Colors.blue,
-      ),
+      appBar: AppBar(title: const Text("Transferências")),
       body: ListView.builder(
           itemCount: widget._transferencias.length,
           itemBuilder: (context, indice) {
@@ -70,11 +64,29 @@ class ItemTransferencia extends StatelessWidget {
     final NumberFormat currencyFormat =
         NumberFormat.currency(locale: 'pt_BR', symbol: 'R\$');
 
-    return Card(
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(255, 53, 16, 141),
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: ListTile(
         leading: const Icon(Icons.monetization_on, color: Colors.green),
-        title: Text(currencyFormat.format(_transferencia.valor)),
-        subtitle: Text('Conta: ${_transferencia.numeroConta}'),
+        title: Text(
+          currencyFormat.format(_transferencia.valor),
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+        subtitle: Text(
+          'Conta: ${_transferencia.numeroConta}',
+          style: const TextStyle(
+            fontSize: 16,
+            color: Colors.white,
+          ),
+        ),
       ),
     );
   }

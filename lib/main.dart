@@ -10,6 +10,17 @@ class Banco extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: Color(0xFF512DA8),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color.fromARGB(255, 53, 16, 141),
+          foregroundColor: Colors.white,
+        ),
+        tabBarTheme: const TabBarTheme(
+          labelColor: Colors.white,
+          unselectedLabelColor: Colors.black45,
+        ),
+      ),
       home: Dashboard(),
     );
   }
@@ -24,6 +35,8 @@ class Dashboard extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Banco MVP'),
           bottom: const TabBar(
+            labelColor: Colors.white,
+            unselectedLabelColor: Color.fromARGB(117, 255, 255, 255),
             tabs: [
               Tab(text: "Transferências"),
               Tab(text: "Contatos"),
